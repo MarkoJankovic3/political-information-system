@@ -23,4 +23,6 @@
 </div>
 
 <button type="submit" class="btn btn-primary btn-block" name="submit">Register</button>
+
+<a href="<?php echo base_url() ?>index.php/user_authentication/login">Already have and account?</a>
 <?php echo form_close(); ?>
