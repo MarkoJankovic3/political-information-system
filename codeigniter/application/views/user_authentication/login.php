@@ -1,3 +1,5 @@
+
+<?php echo form_open('user_authentication/login'); ?>
 <div class="base-container">
     <div class="main center">
         <div class="box center">
@@ -13,7 +15,9 @@
                 <p>Enter Password:</p>
                 <input type="password" name="" id="" placeholder="Enter Password" />
             </div>
-            <button class="btn">Login</button>
+            <button type="submit" class="btn">Login</button>
         </div>
     </div>
 </div>
+
+<?php echo form_close(); ?>

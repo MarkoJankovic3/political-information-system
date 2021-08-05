@@ -8,6 +8,7 @@ class User_authentication extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('session');
+		$this->load->model('login_database');
 	}
 
 	public function login() {
@@ -29,9 +30,10 @@ class User_authentication extends CI_Controller {
 
 	public function signup() {
 
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
-		$this->form_validation->set_rules('email_value', 'Email', 'trim|required');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('first_name', 'First Name', 'required');
+		$this->form_validation->set_rules('last_name', 'last_name', 'required');
+		$this->form_validation->set_rules('email', 'Email Address', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 
@@ -42,16 +44,16 @@ class User_authentication extends CI_Controller {
 		} else {
 
 			$data = array(
-				'user_name' => $this->input->post('username'),
-				'user_email' => $this->input->post('email_value'),
-				'user_password' => $this->input->post('password')
-			);
+    			'first_name' => $this->input->post('first_name'),
+    			'last_name' => $this->input->post('last_name'),
+    			'email' => $this->input->post('email'),
+    			'password' => $this->input->post('password')
+    		);
 					
-			$result = $this->login_database->registration_insert($data);
+			$result = $this->login_database->registration($data);
 			
 			if ($result == TRUE) {
 
-				$data['message_display'] = 'Registration Successfully !';
 				$this->load->view('templates/header');
 				$this->load->view('user_authentication/login', $data);
 				$this->load->view('templates/footer');

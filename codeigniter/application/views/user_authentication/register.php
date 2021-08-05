@@ -1,34 +1,26 @@
 <h1>Register</h1>
-            <?php
-            echo "<div class='error_msg'>";
-                echo validation_errors();
-            echo "</div>";
+<?php echo validation_errors(); ?>
 
-            echo form_open('user_authentication/signup');
-            echo "<div>";
-            echo form_input('username');
-            echo "<div class='error_msg'>";
+<?php echo form_open('user_authentication/signup'); ?>
+<div class="form-group">
+    <label><h6>First Name</h6></label>
+    <input type="text" class="form-control" name="first_name" placeholder="First Name">
+</div>
 
-            if (isset($message_display)) {
-                echo $message_display;
-            }
+<div class="form-group">
+    <label><h6>Last Name</h6></label>
+    <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+</div>
 
-            echo "</div>";
-            echo "</div>";
+<div class="form-group">
+    <label><h6>Email Address</h6></label>
+    <input type="email" class="form-control" name="email" placeholder="Email Address">
+</div>
 
-            echo "<div>";
-            $data = array(
-            'type' => 'email',
-            'name' => 'email_value'
-            );
-            echo form_input($data);
-            echo "</div>";
+<div class="form-group">
+    <label><h6>Password</h6></label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+</div>
 
-            echo "<div>";
-            echo form_password('password');
-            echo "</div>";
-
-            echo "<button class='btn' type='submit'>Register";
-            echo "</button>";
-            ?>
-            <?php echo form_close(); ?>
+<button type="submit" class="btn btn-primary btn-block" name="submit">Register</button>
+<?php echo form_close(); ?>
