@@ -19,7 +19,7 @@ class User_authentication extends CI_Controller {
 
 	public function register() {
 		$this->load->view('templates/header');
-		$this->load->view('user_authentication/register');
+		$this->load->view('user_authentication/login');	
 		$this->load->view('templates/footer');
 	}
 
@@ -51,8 +51,7 @@ class User_authentication extends CI_Controller {
 
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 					
-					$this->load->view('pages/home');
-					$this->load->view('templates/footer');
+					redirect('pages/home');
 
 				} else{
 					$this->session->set_flashdata('login_failed', 'Login is invalid');
@@ -99,4 +98,13 @@ class User_authentication extends CI_Controller {
 			}		
 		}
 	}
+
+	public function signout(){
+			$this->session->set_userdata('logged_in', false);
+			$this->session->unset_userdata('cid');
+			$this->session->unset_userdata('email');
+			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+			redirect('user_authentication/login');
+
+		}
 }
