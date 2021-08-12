@@ -31,11 +31,11 @@
 				        <a href="<?php echo site_url('pages/elections'); ?>" class="nav-link smoothScroll">Elections</a>
 					</li>
 					<li class="nav-item">
-                        <a href="<?php echo site_url('pages/party'); ?>" class="nav-link smoothScroll">Party</a>
+                        <a href="<?php echo site_url('party/index'); ?>" class="nav-link smoothScroll">Party</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="<?php echo site_url('pages/policy'); ?>" class="nav-link smoothScroll">Policy</a>
+                        <a href="<?php echo site_url('policy/index'); ?>" class="nav-link smoothScroll">Policy</a>
                     </li>
                     <li class="nav-item">
                     	<a href="<?php echo base_url() ?>index.php/user_authentication/signout" class="nav-link smoothScroll">Signout</a>
