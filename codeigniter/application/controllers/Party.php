@@ -28,4 +28,21 @@ class Party extends CI_Controller{
         $this->load->view('party/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function view($page) {
+        $this->load->helper('url_helper');
+          if ( ! file_exists(APPPATH.'views/party/list_of_parties/'.$page.'.php'))
+          {
+                  // Whoops, we don't have a page for that!
+                  show_404();
+          }
+            
+          if ($_SESSION['logged_in'] == true) {
+            $this->load->view('templates/logged_header.php');
+          } else {
+            $this->load->view('templates/header.php');
+          }
+          $this->load->view('party/list_of_parties/'.$page);
+          $this->load->view('templates/footer.php');
+  }
 }
