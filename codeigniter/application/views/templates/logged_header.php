@@ -37,6 +37,11 @@
                     <li class="nav-item">
                         <a href="<?php echo site_url('policy/index'); ?>" class="nav-link smoothScroll">Policy</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="<?php echo site_url('profile/index'); ?>" class="nav-link smoothScroll">Profile</a>
+                    </li>
+
                     <li class="nav-item">
                     	<a href="<?php echo base_url() ?>index.php/user_authentication/signout" class="nav-link smoothScroll">Signout</a>
                     </li>

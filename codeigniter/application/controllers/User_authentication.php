@@ -19,7 +19,7 @@ class User_authentication extends CI_Controller {
 
 	public function register() {
 		$this->load->view('templates/header');
-		$this->load->view('user_authentication/login');	
+		$this->load->view('user_authentication/register');	
 		$this->load->view('templates/footer');
 	}
 
@@ -65,7 +65,7 @@ class User_authentication extends CI_Controller {
 
 		$this->form_validation->set_rules('first_name', 'First Name', 'required');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required');
-		$this->form_validation->set_rules('email', 'Email Address', 'required');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|callback_check_email_exists');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
@@ -106,5 +106,15 @@ class User_authentication extends CI_Controller {
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 			redirect('user_authentication/login');
 
+	}
+
+	public function check_email_exists($email){
+		$this->form_validation->set_message('check_email_exists', 'That email is taken. Please choose adifferent one');
+		if($this->login_database->check_email_exists($email)){
+			return true;			
+		} else{
+			return false;
 		}
+	}
+
 }

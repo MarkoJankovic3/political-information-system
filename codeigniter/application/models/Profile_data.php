@@ -7,6 +7,11 @@ class Profile_data extends CI_Model {
 		$this->profile = 'Citizen';
 	}
 
+    public function updateProfile($data) {
+        $this->db->where('cid', $_SESSION['cid']);
+        return $this->db->update($this->profile, $data);
+    }
+
 	public function getProfileData($id = ''){
         $this->db->select('*');
         $this->db->from($this->profile);

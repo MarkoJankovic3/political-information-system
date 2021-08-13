@@ -6,11 +6,10 @@
             <h5>Date of Birth: <?php echo $profile['date_of_birth']; ?></h5>
             <h5>Address : <?php echo $profile['address']; ?></h5>
             <h5>Email : <?php echo $profile['email']; ?></h5>
-            
-
-            
 
 	<?php } else { ?>
 		<p>Parties not found...</p>
 	<?php } ?>
+
+	<a href="<?php echo base_url() ?>index.php/profile/editForm">Edit account</a>
 </div>

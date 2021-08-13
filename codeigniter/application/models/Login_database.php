@@ -40,4 +40,12 @@ class Login_database extends CI_Model{
 		}
 	}
 
+	public function check_email_exists($email){
+			$query = $this->db->get_where('Citizen', array('email' => $email));
+			if(empty($query->row_array())){
+				return true;
+			} else{
+				return false;
+			}
+		}
 }
