@@ -17,12 +17,8 @@ class Pages extends CI_Controller {
           }
 
           $data['title'] = ucfirst($page); // Capitalize the first letter
-            
-          if ($_SESSION['logged_in'] == true) {
-            $this->load->view('templates/logged_header.php');
-          } else {
-            $this->load->view('templates/header.php');
-          }
+          
+          $this->load->view('templates/header.php');
           $this->load->view('pages/'.$page, $data);
           $this->load->view('templates/footer.php');
   }

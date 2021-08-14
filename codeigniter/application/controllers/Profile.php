@@ -16,11 +16,7 @@ class Profile extends CI_Controller{
     
     function index(){
 
-        if ($_SESSION['logged_in'] == true) {
-            $this->load->view('templates/logged_header');
-        } else {
-            $this->load->view('templates/header');
-        }
+        $this->load->view('templates/header');
         
         $data = array();
         

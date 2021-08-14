@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Policy extends CI_Controller{
+class Event extends CI_Controller{
     
     function  __construct(){
         parent::__construct();
@@ -9,7 +9,7 @@ class Policy extends CI_Controller{
         // Load party model
         $this->load->helper('url_helper');
         $this->load->library('session');
-        $this->load->model('policy_model');
+        $this->load->model('event_model');
     }
     
     function index(){
@@ -19,9 +19,9 @@ class Policy extends CI_Controller{
         $data = array();
         
         // Fetch products from the database
-        $data['policies'] = $this->policy_model->getPolicies();
+        $data['events'] = $this->event_model->getEvents();
         // Load the product list view
-        $this->load->view('policy/index', $data);
+        $this->load->view('event/index', $data);
         $this->load->view('templates/footer');
     }
 }

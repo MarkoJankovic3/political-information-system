@@ -27,19 +27,35 @@
                     <li class="nav-item">
                         <a href="<?php echo site_url('pages/home'); ?>" class="nav-link smoothScroll">Home</a>
                     </li>
-					<li class="nav-item">
-				        <a href="<?php echo site_url('pages/elections'); ?>" class="nav-link smoothScroll">Elections</a>
-					</li>
-					<li class="nav-item">
-                        <a href="<?php echo site_url('party/index'); ?>" class="nav-link smoothScroll">Party</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('policy/index'); ?>" class="nav-link smoothScroll">Policy</a>
-                    </li>
-                    <li class="nav-item">
-                    	<a href="<?php echo site_url('user_authentication/register'); ?>" class="nav-link smoothScroll">Login/Register</a>
-                    </li>
+                    <?php if($_SESSION['logged_in'] == true) { ?>
+	                    <li class="nav-item">
+	                        <a href="<?php echo site_url('event/index'); ?>" class="nav-link smoothScroll">Events</a>
+	                    </li>
+
+						<li class="nav-item">
+					        <a href="<?php echo site_url('pages/elections'); ?>" class="nav-link smoothScroll">Elections</a>
+						</li>
+						<li class="nav-item">
+	                        <a href="<?php echo site_url('party/index'); ?>" class="nav-link smoothScroll">Party</a>
+	                    </li>
+
+	                    <li class="nav-item">
+	                        <a href="<?php echo site_url('policy/index'); ?>" class="nav-link smoothScroll">Policy</a>
+	                    </li>
+
+	                    <li class="nav-item">
+	                        <a href="<?php echo site_url('profile/index'); ?>" class="nav-link smoothScroll">Profile</a>
+	                    </li>
+
+	                    <li class="nav-item">
+	                    	<a href="<?php echo base_url() ?>index.php/user_authentication/signout" class="nav-link smoothScroll">Signout</a>
+	                    </li>
+	                <?php } else { ?>
+                    	<li class="nav-item">
+                    		<a href="<?php echo site_url('user_authentication/register'); ?>" class="nav-link smoothScroll">Login/Register</a>
+                    	</li>
+                    <?php } ?>
                 </ul>
             </div>
 		</div>
