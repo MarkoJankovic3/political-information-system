@@ -49,4 +49,13 @@ class Event_model extends CI_Model {
         $this->db->where('eventid', $id);
         return $this->db->delete($this->event);
     }
+
+    public function joinEvent($id) {
+        $data = array(
+            'cid' => $_SESSION['cid'],
+            'eventid' => $id
+        );
+
+        $this->db->insert('Citizen_Event', $data);
+    }
 }

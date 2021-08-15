@@ -27,6 +27,19 @@ class Event extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
+    public function view() {
+        $data_id = $this->uri->segment(3);
+        $data = array();
+        
+        // Fetch products from the database
+        $data['event'] = $this->event_model->getEvent($data_id);
+    
+
+        $this->load->view('templates/header');
+        $this->load->view('event/view', $data);
+        $this->load->view('templates/footer');
+    }
+
     function create() {
         $this->load->view('templates/header');
         $this->load->view('event/create');
@@ -77,8 +90,14 @@ class Event extends CI_Controller{
         
     }
 
-    function deleteEvent($id) {
+    public function deleteEvent($id) {
         $this->event_model->deleteEvent($id);
+        redirect('event/index');
+    }
+
+    public function join($id) {
+        $this->event_model->joinEvent($id);
+
         redirect('event/index');
     }
 }

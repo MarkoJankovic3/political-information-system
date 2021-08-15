@@ -27,14 +27,24 @@ class Party extends CI_Controller{
 
     public function view($page) {
         $this->load->helper('url_helper');
-          if ( ! file_exists(APPPATH.'views/party/list_of_parties/'.$page.'.php'))
-          {
-                  // Whoops, we don't have a page for that!
-                  show_404();
-          }
+        if ( ! file_exists(APPPATH.'views/party/list_of_parties/'.$page.'.php')) {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        $data = array();
+        
+        // Fetch products from the database
+        $data['party'] = $this->party_model->getParty($page);
             
-          $this->load->view('templates/header.php');
-          $this->load->view('party/list_of_parties/'.$page);
-          $this->load->view('templates/footer.php');
-  }
+        $this->load->view('templates/header.php');
+        $this->load->view('party/list_of_parties/'.$page, $data);
+        $this->load->view('templates/footer.php');
+    }
+
+    public function joinParty($ppid) {
+        $this->party_model->join($ppid);
+        
+        redirect('party/index');
+    }
 }
