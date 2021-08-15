@@ -28,7 +28,7 @@
                         <a href="<?php echo site_url('pages/home'); ?>" class="nav-link smoothScroll">Home</a>
                     </li>
 
-                    <?php if($_SESSION['logged_in'] == true) { ?>
+                    <?php if($this->session->userdata('logged_in') == true) { ?>
 	                    <li class="nav-item">
 	                        <a href="<?php echo site_url('event/index'); ?>" class="nav-link smoothScroll">Events</a>
 	                    </li>

@@ -33,11 +33,7 @@ class Party extends CI_Controller{
                   show_404();
           }
             
-          if ($_SESSION['logged_in'] == true) {
-            $this->load->view('templates/logged_header.php');
-          } else {
-            $this->load->view('templates/header.php');
-          }
+          $this->load->view('templates/header.php');
           $this->load->view('party/list_of_parties/'.$page);
           $this->load->view('templates/footer.php');
   }

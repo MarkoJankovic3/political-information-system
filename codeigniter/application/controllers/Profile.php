@@ -33,7 +33,7 @@ class Profile extends CI_Controller{
         
         // Fetch products from the database
         $data['profile'] = $this->profile_data->getProfileData();
-        $this->load->view('templates/logged_header');
+        $this->load->view('templates/header');
         $this->load->view('profile/editing_form', $data);
         $this->load->view('templates/footer');
     }
