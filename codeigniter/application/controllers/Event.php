@@ -62,14 +62,23 @@ class Event extends CI_Controller{
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('location', 'Location', 'required');
 
-        $data = array(
-            'name' => $this->input->post('name'),
-            'date' => $this->input->post('date'),
-            'location' => $this->input->post('location')
-        );
-                    
-        $result = $this->event_model->createEvent($data);                
-        redirect('event/index');
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->load->view('templates/header');
+            $this->load->view('event/create');
+            $this->load->view('templates/footer');
+
+        } else {
+
+            $data = array(
+                'name' => $this->input->post('name'),
+                'date' => $this->input->post('date'),
+                'location' => $this->input->post('location')
+            );
+                        
+            $result = $this->event_model->createEvent($data);                
+            redirect('event/index');
+        }
     }
 
     function editEvent($id) {
