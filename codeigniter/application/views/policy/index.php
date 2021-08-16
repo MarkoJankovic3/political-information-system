@@ -9,6 +9,8 @@
             <h6> Date: <?php echo $row["type"]; ?></h6>
             <p><?php echo $row["characteristics"]; ?></p>
 
+            <a href="<?php echo $row['url'] ?>">Read more</a>
+
 	<?php } } else { ?>
 		<p>Policies not found...</p>
 	<?php } ?>

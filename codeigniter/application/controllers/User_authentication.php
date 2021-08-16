@@ -51,7 +51,7 @@ class User_authentication extends CI_Controller {
 
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 					
-					redirect('pages/home');
+					redirect('profile/index');
 
 				} else{
 					$this->session->set_flashdata('login_failed', 'Login is invalid');

@@ -24,18 +24,12 @@
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('pages/home'); ?>" class="nav-link smoothScroll">Home</a>
-                    </li>
 
                     <?php if($this->session->userdata('logged_in') == true) { ?>
 	                    <li class="nav-item">
 	                        <a href="<?php echo site_url('event/index'); ?>" class="nav-link smoothScroll">Events</a>
 	                    </li>
 
-						<li class="nav-item">
-					        <a href="<?php echo site_url('pages/elections'); ?>" class="nav-link smoothScroll">Elections</a>
-						</li>
 						<li class="nav-item">
 	                        <a href="<?php echo site_url('party/index'); ?>" class="nav-link smoothScroll">Party</a>
 	                    </li>
@@ -52,6 +46,9 @@
 	                    	<a href="<?php echo base_url() ?>index.php/user_authentication/signout" class="nav-link smoothScroll">Signout</a>
 	                    </li>
 	                <?php } else { ?>
+	                	<li class="nav-item">
+                        	<a href="<?php echo site_url('pages/home'); ?>" class="nav-link smoothScroll">Home</a>
+                    	</li>
                     	<li class="nav-item">
                     		<a href="<?php echo site_url('user_authentication/register'); ?>" class="nav-link smoothScroll">Login/Register</a>
                     	</li>
