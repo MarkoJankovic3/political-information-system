@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/aos.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/site.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/contact_page.css">
 </head>
